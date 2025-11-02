@@ -8,7 +8,7 @@ TOKEN_ID = os.getenv("20251101220631165040670")      # положишь в env
 SN = os.getenv("SRJEZGKTMG")                  # положишь в env
 BOT_TOKEN = os.getenv("8330351071:AAFmcE9Ol783Aay0FMcHC6yZW5OfilSMP7o")    # положишь в env
 
-API_RT = "https://www.eu.solaxcloud.com/proxyApp/proxy/api/getRealtimeInfo.do\"
+API_RT = "https://www.solaxcloud.com/proxy/api/v5/inverter/getRealtimeInfo"
 
 app = Flask(__name__)
 
@@ -34,5 +34,6 @@ if __name__ == "__main__":
     from threading import Thread
     Thread(target=application.run_polling, daemon=True).start()
     app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+
 
 
