@@ -30,11 +30,8 @@ if __name__ == "__main__":
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler("status", status))
 
-    # запускаем веб сервер flask (для render)
-    from threading import Thread
-    Thread(target=application.run_polling, daemon=True).start()
-    app.run(host="0.0.0.0", port=int(os.getenv("PORT", 10000)))
+    # запускаем application в background без polling
+    application.bot.delete_webhook(drop_pending_updates=True)
 
-
-
-
+    # Flask будет main-loop
+    app.run(host="0.0.0.0", port=int(os.getenv("PORT", "10000")))
