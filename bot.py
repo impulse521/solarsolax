@@ -11,7 +11,7 @@ TOKEN_ID = os.getenv("TOKEN_ID")
 SN = os.getenv("SN")
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-API_RT = "https://www.solaxcloud.com/proxy/api/v5/inverter/getRealtimeInfo"
+API_RT = "https://www.eu.solaxcloud.com/proxyApp/proxy/api/getRealtimeInfo.do"
 
 app = Flask(__name__)
 
@@ -78,3 +78,4 @@ if __name__ == "__main__":
     # Render автоматически назначает PORT env var.
     port = int(os.getenv("PORT", "10000"))
     app.run(host="0.0.0.0", port=port)
+
